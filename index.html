@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mi Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#descripcion">Descripción</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#producto">Producto</a>
+        <a href="#contacto">Contáctanos</a>
+    </nav>
+
+    <header>
+        <img src="logo.png" alt="Logo o imagen destacada" />
+        <h1>Cajas armables hechas con hojas secas de árboles</h1>
+        <p>Ármalo fácilmente, sin dañar lo que importa</p>
+    </header>
+
+    <section id="descripcion">
+        <h2>Descripción del producto</h2>
+        <p>Ligero, resistente y biodegradable. Nuestras cajas combinan diseño práctico con respeto por la naturaleza.
+            Ideales para cuidar nuestro futuro.</p>
+    </section>
+
+    <section id="beneficios">
+        <h2>Beneficios</h2>
+        <ul>
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/1684/1684375.png" alt="Planeta verde">
+                <div class="benefit-text">Amigables con el planeta: hechas a base de hojas secas, nuestras cajas reducen
+                    el impacto ambiental desde su origen.</div>
+            </li>
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Caja ecológica">
+                <div class="benefit-text">Empaque con propósito: ayuda a tu emprendimiento a destacar con una
+                    alternativa ecológica que refleja tus valores.</div>
+            </li>
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" alt="Sin plástico">
+                <div class="benefit-text">Adiós a lo contaminante: reemplaza el cartón industrial y el plástico por una
+                    solución limpia, creativa y responsable.</div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="producto">
+        <h2>Imagen de tu producto</h2>
+        <img src="https://via.placeholder.com/600x300" alt="Imagen de producto" />
+    </section>
+
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <p>¿Te gustaría darle un giro ecológico a tu empaque? 🌿 Escríbenos y descubre cómo nuestras cajas pueden hacer
+            la diferencia en tu emprendimiento. ¡Estamos aquí para ayudarte!</p>
+
+        <form id="contacto-form" action="https://formsubmit.co/gomeztorresjorgeisaac@gmail.com" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required />
+            <input type="email" name="correo" placeholder="Email" required />
+            <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <input type="submit" value="Enviar mensaje" />
+        </form>
+
+        <div id="respuesta"
+            style="display: none; margin-top: 20px; padding: 15px; background: #e0f7e9; border: 1px solid #4CAF50; border-radius: 6px; color: #2e7d32;">
+            ✅ ¡Gracias por tu mensaje! Te responderemos pronto.
+        </div>
+    </section>
+
+    <footer>
+        © 2025 - Tu negocio. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        const form = document.getElementById('contacto-form');
+        const respuesta = document.getElementById('respuesta');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    form.reset();
+                    respuesta.style.display = 'block';
+                } else {
+                    alert('Hubo un error al enviar. Intenta más tarde.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
