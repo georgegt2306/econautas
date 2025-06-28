@@ -55,14 +55,17 @@
         </ul>
     </section>
 
-<section id="producto">
-    <h2>Imágenes de tu producto</h2>
-    <div class="galeria-producto">
-        <img src="caja.jpeg" alt="Caja armada frontal" />
-        <img src="caja_abierta.jpeg" alt="Caja abierta" />
-    </div>
-</section>
-
+    <section id="producto">
+        <h2>Imágenes de tu producto</h2>
+        <div class="carrusel-container">
+            <button class="carrusel-btn izquierda"><i class="fas fa-chevron-left"></i></button>
+            <div class="carrusel">
+                <img src="caja.jpeg" alt="Caja cerrada" />
+                <img src="caja_abierta.jpeg" alt="Caja abierta" />
+            </div>
+            <button class="carrusel-btn derecha"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
     <section id="contacto">
         <h2>Contáctanos</h2>
         <p>¿Buscas un empaque ecológico y único? 🌿 Escríbenos y cuéntanos cuánto invertirías
@@ -90,6 +93,26 @@
     <script>
         const form = document.getElementById('contacto-form');
         const respuesta = document.getElementById('respuesta');
+        const carrusel = document.querySelector('.carrusel');
+        const btnIzq = document.querySelector('.carrusel-btn.izquierda');
+        const btnDer = document.querySelector('.carrusel-btn.derecha');
+
+        let scrollAmount = 0;
+        const scrollStep = 300; // píxeles por clic
+
+        btnIzq.addEventListener('click', () => {
+            carrusel.scrollBy({
+                left: -scrollStep,
+                behavior: 'smooth'
+            });
+        });
+
+        btnDer.addEventListener('click', () => {
+            carrusel.scrollBy({
+                left: scrollStep,
+                behavior: 'smooth'
+            });
+        });
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -110,6 +133,7 @@
                 }
             });
         });
+
     </script>
 </body>
 
