@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Econautas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Montserrat:wght@400;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Montserrat:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="estilo.css">
 </head>
@@ -60,12 +61,8 @@
         <div class="carrusel-container">
             <button class="carrusel-btn izquierda"><i class="fas fa-chevron-left"></i></button>
             <div class="carrusel" id="carrusel">
-                <div class="slide activo">
-                    <img src="caja.jpeg" alt="Caja cerrada" />
-                </div>
-                <div class="slide">
-                    <img src="caja_abierta.jpeg" alt="Caja abierta" />
-                </div>
+                <img src="caja.jpeg" alt="Caja cerrada" />
+                <img src="caja_abierta.jpeg" alt="Caja abierta" />
             </div>
             <button class="carrusel-btn derecha"><i class="fas fa-chevron-right"></i></button>
         </div>
@@ -96,21 +93,19 @@
     </footer>
 
     <script>
-        const slides = document.querySelectorAll('.slide');
+        const carrusel = document.getElementById('carrusel');
+        const totalSlides = carrusel.children.length;
         let index = 0;
 
         document.querySelector('.carrusel-btn.derecha').addEventListener('click', () => {
-            slides[index].classList.remove('activo');
-            index = (index + 1) % slides.length;
-            slides[index].classList.add('activo');
+            index = (index + 1) % totalSlides;
+            carrusel.style.transform = `translateX(-${index * 100}%)`;
         });
 
         document.querySelector('.carrusel-btn.izquierda').addEventListener('click', () => {
-            slides[index].classList.remove('activo');
-            index = (index - 1 + slides.length) % slides.length;
-            slides[index].classList.add('activo');
+            index = (index - 1 + totalSlides) % totalSlides;
+            carrusel.style.transform = `translateX(-${index * 100}%)`;
         });
-
         // Formulario
         const form = document.getElementById('contacto-form');
         const respuesta = document.getElementById('respuesta');
