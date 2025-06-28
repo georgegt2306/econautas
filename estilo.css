@@ -1,200 +1,188 @@
     html {
-        scroll-behavior: smooth;
+      scroll-behavior: smooth;
     }
 
     body {
-        margin: 0;
-        font-family: 'Quicksand', sans-serif;
-        background-color: #f4f1ec;
-        color: #2d2d2d;
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f4f1ec;
+      color: #2d2d2d;
     }
 
     nav {
-        background-color: #2e2e2e;
-        display: flex;
-        justify-content: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        padding: 10px;
+      background-color: #2e2e2e;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px;
+      flex-wrap: wrap;
     }
 
     nav a {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 20px;
-        font-weight: bold;
-        font-size: 1rem;
+      color: #fff;
+      text-decoration: none;
+      margin: 5px 15px;
+      font-weight: bold;
+      font-size: 1rem;
     }
 
     nav a:hover {
-        color: #a5d6a7;
+      color: #a5d6a7;
     }
 
     header {
-        background: linear-gradient(135deg, #4CAF50, #6d4c41);
-        color: white;
-        text-align: center;
-        padding: 60px 20px;
+      background: linear-gradient(135deg, #4CAF50, #6d4c41);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
     }
 
     header img {
-        width: 120px;
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 100px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     header h1 {
-        margin: 20px 0 10px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 2rem;
+      margin: 20px 0 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
     }
 
     header p {
-        font-size: 1.1rem;
+      font-size: 1rem;
     }
 
     section {
-        max-width: 900px;
-        margin: 60px auto 40px;
-        padding: 40px 30px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        scroll-margin-top: 90px;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      scroll-margin-top: 80px;
     }
 
     h2 {
-        color: #4e342e;
-        font-family: 'Montserrat', sans-serif;
-        margin-top: 0;
+      color: #4e342e;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      font-size: 1.4rem;
     }
 
     ul {
-        list-style: none;
-        padding-left: 0;
+      list-style: none;
+      padding-left: 0;
     }
 
     ul li {
-        display: flex;
-        align-items: center;
-        margin-bottom: 30px;
-        gap: 20px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     ul li img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 10px;
-        flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
     }
 
     .benefit-text {
-        flex: 1;
+      flex: 1;
+      min-width: 200px;
     }
 
     .carrusel-container {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 12px;
     }
 
     .carrusel {
-        display: flex;
-        width: 200%;
-        /* 2 imágenes */
-        transition: transform 0.5s ease-in-out;
+      display: flex;
+      transition: transform 0.5s ease-in-out;
     }
 
     .carrusel img {
-        width: 100%;
-        flex-shrink: 0;
-        object-fit: cover;
-        border-radius: 10px;
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
     .carrusel-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(255, 255, 255, 0.8);
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 2;
-        padding: 10px;
-        border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 2;
+      padding: 10px;
+      border-radius: 50%;
     }
 
     .carrusel-btn.izquierda {
-        left: 10px;
+      left: 10px;
     }
 
     .carrusel-btn.derecha {
-        right: 10px;
-    }
-
-
-    .btn,
-    input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 6px;
-        border: none;
-        cursor: pointer;
-        transition: background 0.3s;
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .btn:hover,
-    input[type="submit"]:hover {
-        background-color: #43a047;
+      right: 10px;
     }
 
     form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
     }
 
     input,
     textarea {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        font-size: 1rem;
-        font-family: 'Quicksand', sans-serif;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #43a047;
     }
 
     footer {
-        text-align: center;
-        padding: 30px;
-        background: #3e2723;
-        color: white;
-        font-size: 0.9rem;
-        margin-top: 40px;
+      text-align: center;
+      padding: 30px;
+      background: #3e2723;
+      color: white;
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 768px) {
-        nav {
-            flex-wrap: wrap;
-            padding: 10px 5px;
-        }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
 
-        nav a {
-            margin: 5px 10px;
-            font-size: 0.9rem;
-        }
-
-        section {
-            padding: 25px 15px;
-            margin: 40px 10px;
-        }
+      .carrusel img {
+        height: auto;
+      }
     }
