@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Econautas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Montserrat:wght@400;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Montserrat:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
+
     <nav>
         <a href="#descripcion">Descripción</a>
         <a href="#beneficios">Beneficios</a>
@@ -32,7 +32,7 @@
             Ideales para cuidar nuestro futuro.</p>
     </section>
 
-    <section id="Propuesta de valor">
+    <section id="beneficios">
         <h2>Beneficios</h2>
         <ul>
             <li>
@@ -49,8 +49,8 @@
             <li>
                 <img src="https://static.wixstatic.com/media/a5de02_73efa79a006a40348c13ad501738333b~mv2.gif"
                     alt="Sin plástico">
-                <div class="benefit-text">Diseño que impacta: colores naturales que llaman la atención y conectan con
-                    lo ecológico.</div>
+                <div class="benefit-text">Diseño que impacta: colores naturales que llaman la atención y conectan con lo
+                    ecológico.</div>
             </li>
         </ul>
     </section>
@@ -59,17 +59,22 @@
         <h2>Imágenes de tu producto</h2>
         <div class="carrusel-container">
             <button class="carrusel-btn izquierda"><i class="fas fa-chevron-left"></i></button>
-            <div class="carrusel">
-                <img src="caja.jpeg" alt="Caja cerrada" />
-                <img src="caja_abierta.jpeg" alt="Caja abierta" />
+            <div class="carrusel" id="carrusel">
+                <div class="slide activo">
+                    <img src="caja.jpeg" alt="Caja cerrada" />
+                </div>
+                <div class="slide">
+                    <img src="caja_abierta.jpeg" alt="Caja abierta" />
+                </div>
             </div>
             <button class="carrusel-btn derecha"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
+
     <section id="contacto">
         <h2>Contáctanos</h2>
-        <p>¿Buscas un empaque ecológico y único? 🌿 Escríbenos y cuéntanos cuánto invertirías
-            en una caja como esta. ¡Tu opinión nos importa! 💬</p>
+        <p>¿Buscas un empaque ecológico y único? 🌿 Escríbenos y cuéntanos cuánto invertirías en una caja como esta. ¡Tu
+            opinión nos importa! 💬</p>
 
         <form id="contacto-form" action="https://formsubmit.co/econautas3@outlook.com" method="POST">
             <input type="text" name="nombre" placeholder="Nombre" required />
@@ -91,28 +96,24 @@
     </footer>
 
     <script>
+        const slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        document.querySelector('.carrusel-btn.derecha').addEventListener('click', () => {
+            slides[index].classList.remove('activo');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('activo');
+        });
+
+        document.querySelector('.carrusel-btn.izquierda').addEventListener('click', () => {
+            slides[index].classList.remove('activo');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('activo');
+        });
+
+        // Formulario
         const form = document.getElementById('contacto-form');
         const respuesta = document.getElementById('respuesta');
-        const carrusel = document.querySelector('.carrusel');
-        const btnIzq = document.querySelector('.carrusel-btn.izquierda');
-        const btnDer = document.querySelector('.carrusel-btn.derecha');
-
-        let scrollAmount = 0;
-        const scrollStep = 300; // píxeles por clic
-
-        btnIzq.addEventListener('click', () => {
-            carrusel.scrollBy({
-                left: -scrollStep,
-                behavior: 'smooth'
-            });
-        });
-
-        btnDer.addEventListener('click', () => {
-            carrusel.scrollBy({
-                left: scrollStep,
-                behavior: 'smooth'
-            });
-        });
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -133,8 +134,8 @@
                 }
             });
         });
-
     </script>
+
 </body>
 
 </html>
